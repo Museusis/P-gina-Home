@@ -1,0 +1,145 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    /* todo o container vai obedecer essas 3 "regrinhas" */
+
+}
+
+/* começo do header */
+
+.header {
+    margin: 0;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+}
+
+.header .container {
+    /* quero mudar exatamente o container que esta dentro do meu header */
+    justify-content: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    /* foi pro lado esquerdo */
+ }
+
+.naveBar {
+    width: 570px;
+    height: 45px;
+    display: flex;
+    /* arrumou a logo */
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px;
+    /* o padding comprime as palavras */
+    color: rgb(0, 0, 0);
+    list-style: none;
+}
+
+.logo{
+     height: 195px;
+     width: 280px;
+     display: flex;
+     justify-content: flex-start;
+}
+
+a {
+    /* para tirar a estilizacao que vem quando transformamos em link */
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    /* mesma cor da naveBar */
+
+}
+
+/* fim do header */
+/* começo do banner */
+
+.banner {
+    width: 30%;
+    /* deixou o texto mais para a esquerda */
+    height: 700px;
+
+}
+
+p {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    display: inline;
+    
+}
+
+.foto{
+    width: 20%;
+    height: 20%;
+    flex-direction: row;
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    /* para que o meu p fique no centro */
+    height: 100%;
+}
+
+.banner .container p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 60px;
+    
+}
+
+p span {
+    font-weight: 800;
+}
+
+.nos {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: inline;
+}
+
+/* fim do banner */
+/* começo do social */
+
+.social .container {
+    justify-content: space-around;
+}
+
+.card {
+    background-color: rgba(200, 203, 220, 0.54);
+    height: 240px;
+    border-radius: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 50px;
+    box-shadow: 7px 7px 13px 0px rgba(50,50,50, 0.22);
+    width: 400px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.card h4 {
+    color: #000000;
+}
+
+.sobre{
+   justify-content: start;
+}
+
+.solucao {
+    text-align: center;
+}
+
+
+
