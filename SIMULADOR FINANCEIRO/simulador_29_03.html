@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <div class="tudo">
+        <h1> Simulador Financeiro </h1>
+        <h2> Veja o quanto você pode economizar, por ano, ao aplicar nosso projeto no seu museu! </h2> <br>
+        <div>
+
+            Digite a média de pessoas que visitam o museu por ano:<br>
+            <input type="number" id="input_visitas"> <br><br>
+
+            Digite o valor do ingresso do museu:<br>
+            <input type="number" id="input_ingressos"><br><br>
+
+            Quantas obras foram restauradas no ultimo ano:<br>
+            <input type="number" id="input_qtdobrasRestauradas"><br><br>
+
+            Qual o tempo médio de restauração das peças (meses):<br>
+            <input type="number" id="input_tempoRestauracao"><br><br>
+
+            Após mandar as obras para restauração, houve queda de público? Se sim, quanto?(%) <br>
+            <input type="number" id="input_porcentagem"><br><br>
+
+            Digite quanto o museu gastou em restauração no último ano:<br>
+            <input type="number" id="input_obras"> <br><br>
+
+
+            <button onclick="economia()">
+                Ver Econômia
+            </button> <br> <br>
+        </div>
+        <div id="div_mostrar" class="mostrar"> </div> <br> <!-- div que mostra a mensagem principal -->
+        <div id="div_informacao" class="info"></div> <!-- div para mostrar que foram dados estimados -->
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function economia() {
+        var obras = Number(input_obras.value) // valor médio de restauração no ano
+        var ingressos = Number(input_ingressos.value) // valor do ingresso
+        var visitas = Number(input_visitas.value) // quantidade média de pessoas que foram no museu
+        var obras_restauradas = input_qtdobrasRestauradas.value // valor de quantas obras foram restauradas
+        var restauracao = input_tempoRestauracao.value // tempo da restauração
+        var porcentagem = Number(input_porcentagem.value) // porcentagem da queda de publico
+        var perda_visitas = (visitas * porcentagem) / 100 // porcentagem de quantas pessoas, a mais, poderiam ter ido no museus caso as obras não estivessem sendo restauradas
+        // não sei se o calculo esta certo ^
+        var perda_ingressos = perda_visitas * ingressos // multiplica o quanto de pessoas a mais poderiam ter ido, com o valor do ingresso
+        var perda_total = obras + perda_ingressos // soma o gasto da restauração com os ingressos que poderiam ter sido vendido a mais
+
+        if (perda_total < 5000) {
+
+            div_mostrar.innerHTML = `
+            Foi(foram) restaurada(s) ${obras_restauradas} obra(s). <br>
+            Sendo ela(s), ${raras} rara(s) (de valor maior). <br>
+            Ficou(ficaram) ${restauracao} mês(es) em restauração. <br>
+            Não há necessidade da monitoração em seu museu, volte quando for necessário! <br>
+            ` // mostra os valores adquiridos nas inputs, para o cliente entender melhor e a empresa ter uma maior captação de dados
+            div_informacao.innerHTML = `*calculo feito utilizando valores estimados.` // mensagem para dizer que o calculo é apenas estimado
+        }
+        if (perda_total >= 5000) {
+            div_mostrar.innerHTML = `
+            Aplicando o nosso projeto você pode economizar até <b>R$${perda_total}!</b> <br>
+            Isso porque, com o monitoramento da temperatura e da umidade, o museu poderá controlar esses fatores, <br>
+             dessa forma, evitando enviar obras para a restauração.<br>
+            Foi(foram) restaurada(s) ${obras_restauradas} obra(s). <br>
+            Sendo ela(s), ${raras} rara(s) (de valor maior). <br>
+            Ficou(ficaram) ${restauracao} mês(es) em restauração.
+            ` // mostra os valores adquiridos nas inputs, para o cliente entender melhor e a empresa ter uma maior captação de dados
+            div_informacao.innerHTML = `*calculo feito utilizando valores estimados.` // mensagem para dizer que o calculo é apenas estimado
+        }
+    }
+</script>

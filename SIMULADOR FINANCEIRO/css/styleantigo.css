@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    text-align: center; /* centraliza os textos na página html*/
+    font-family: 'Times New Roman', Times, serif;
+} /* estilização do corpo por inteiro, zera a margem automatica e define um tipo de fonte */
+
+.info {
+    font-size: smaller;
+    font-weight: bold;
+} /* estilazação da div_informação, para deixar ela pequena e em negrito */
